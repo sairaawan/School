@@ -21,6 +21,12 @@ public class Student {
     }
 
     public void upgrade() {
+        if (this.grade == 'F') {
+            this.grade = 'E';
+        }
+        if (this.grade == 'E') {
+            this.grade = 'D';
+        }
         if (this.grade == 'D') {
             this.grade = 'C';
         }
@@ -34,6 +40,12 @@ public class Student {
     }
 
     public void downgrade() {
+        if (this.grade == 'E') {
+            this.grade = 'F';
+        }
+        if (this.grade == 'D') {
+            this.grade = 'E';
+        }
         if (this.grade == 'C') {
             this.grade = 'D';
         }
@@ -58,10 +70,10 @@ public class Student {
     public static void main(String[] args) {
 
         Student s1 = new Student("saira", 'A', 4);
-        if (grade != 'A' && grade != 'B' && grade != 'C' && grade != 'D') {
+        if (grade != 'A' && grade != 'B' && grade != 'C' && grade != 'D' && grade != 'E'&& grade != 'F') {
             System.out.println("Grades are incorrect.Try again.");
 
-        } else if (group != 1 && group != 2 && group != 3 && group != 4) {
+        } else if (group != 1 && group != 2 && group != 3 && group != 4 && group != 5) {
             System.out.println("Group is incorrect.Try again.");
         } else {
             System.out.println(s1);
