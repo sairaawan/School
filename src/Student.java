@@ -2,58 +2,56 @@ import java.util.Arrays;
 
 public class Student {
     private String name;
-    private static char grade;
-    private static int group;
+    private Grades grade;
+    private Group group;
     private final String NICKNAME = "MySecretNickName";
 
-    public Student(String name, char grade, int group) {
+    public Student(String name, Grades grade,Group value) {
         this.name = name;
         this.grade = grade;
-        this.group = group;
+        this.group = value;
     }
 
-    private char getGrade() {
-        return grade;
-    }
-
-    private String getName() {
+    public String getName() {
         return name;
     }
 
-    public void upgrade() {
-        if (this.grade == 'F') {
-            this.grade = 'E';
+    public Grades getGrade() {
+        return grade;
+    }
+    public void downGrade() {
+        if (this.grade == Grades.A) {
+            this.grade = Grades.B;
         }
-        if (this.grade == 'E') {
-            this.grade = 'D';
+        if (this.grade == Grades.B) {
+            this.grade = Grades.C;
         }
-        if (this.grade == 'D') {
-            this.grade = 'C';
+        if (this.grade == Grades.C) {
+            this.grade = Grades.B;
         }
-        if (this.grade == 'C') {
-            this.grade = 'B';
+        if (this.grade == Grades.D) {
+            this.grade = Grades.E;
         }
-        if (this.grade == 'B') {
-            this.grade = 'A';
+        if (this.grade == Grades.E) {
+            this.grade = Grades.F;
         }
 
     }
-
-    public void downgrade() {
-        if (this.grade == 'E') {
-            this.grade = 'F';
+    public void upGrade() {
+        if (this.grade == Grades.B) {
+            this.grade = Grades.A;
         }
-        if (this.grade == 'D') {
-            this.grade = 'E';
+        if (this.grade == Grades.C) {
+            this.grade = Grades.B;
         }
-        if (this.grade == 'C') {
-            this.grade = 'D';
+        if (this.grade == Grades.D) {
+            this.grade = Grades.C;
         }
-        if (this.grade == 'B') {
-            this.grade = 'C';
+        if (this.grade == Grades.E) {
+            this.grade = Grades.D;
         }
-        if (this.grade == 'A') {
-            this.grade = 'B';
+        if (this.grade == Grades.F) {
+            this.grade = Grades.E;
         }
 
     }
@@ -63,29 +61,18 @@ public class Student {
         return "Student{" +
                 "name='" + name + '\'' +
                 ", grade=" + grade +
-                ", group=" + group +
+                ", group=" + group.getID() +
+
                 '}';
     }
 
     public static void main(String[] args) {
 
-        Student s1 = new Student("saira", 'A', 4);
-        if (grade != 'A' && grade != 'B' && grade != 'C' && grade != 'D' && grade != 'E'&& grade != 'F') {
-            System.out.println("Grades are incorrect.Try again.");
 
-        } else if (group != 1 && group != 2 && group != 3 && group != 4 && group != 5) {
-            System.out.println("Group is incorrect.Try again.");
-        } else {
-            System.out.println(s1);
-            s1.downgrade();
-            System.out.println("Downgrade " + s1);
-            s1.upgrade();
-            System.out.println("Upgrade " + s1);
 
-        }
-
+        Student s1 = new Student("saira",Grades.A, Group.Group1);
+        System.out.println(s1);
 
 
     }
-
 }
