@@ -70,7 +70,6 @@ public class Student {
                 "name='" + name + '\'' +
                 ", grade=" + grade +
                 ", group=" + group.getID() +
-
                 '}';
     }
 
